@@ -125,7 +125,7 @@ jobs:
       - name: Build Verax Debug
         id: build-verax
         env:
-          MAKEFLAGS: NUM_THREADS=8 MAX_HIGH_MEM_JOBS=4 MAX_LINK_JOBS=4
+          MAKEFLAGS: NUM_THREADS=3 MAX_HIGH_MEM_JOBS=1 MAX_LINK_JOBS=1
           CPU_TARGET: "avx"
         run: |
           echo "=== Starting Build ==="
