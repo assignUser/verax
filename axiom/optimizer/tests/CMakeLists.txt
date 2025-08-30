@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-velox_add_library(velox_optimizer_tests_parquet_tpch ParquetTpchTest.cpp)
+add_library(velox_optimizer_tests_parquet_tpch ParquetTpchTest.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_parquet_tpch
   velox_fe_logical_plan_builder
   velox_verax
@@ -30,9 +30,9 @@ velox_link_libraries(
   gtest
   gtest_main)
 
-velox_add_library(velox_optimizer_tests_query_test_base QueryTestBase.cpp)
+add_library(velox_optimizer_tests_query_test_base QueryTestBase.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_query_test_base
   velox_verax
   velox_schema_resolver
@@ -46,21 +46,21 @@ velox_link_libraries(
   gtest
   gtest_main)
 
-velox_add_library(velox_optimizer_tests_presto_parser PrestoParser.cpp)
+add_library(velox_optimizer_tests_presto_parser PrestoParser.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_presto_parser velox_fe_logical_plan_builder
   axiom_sql_presto_ast antlr4_shared)
 
-velox_add_library(velox_optimizer_tests_duck_parser DuckParser.cpp)
+add_library(velox_optimizer_tests_duck_parser DuckParser.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_duck_parser velox_fe_logical_plan_builder
   velox_parse_parser velox_vector)
 
-velox_add_library(velox_optimizer_tests_plan_matcher PlanMatcher.cpp)
+add_library(velox_optimizer_tests_plan_matcher PlanMatcher.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_plan_matcher
   velox_hive_connector
   velox_parse_parser
@@ -69,10 +69,10 @@ velox_link_libraries(
   GTest::gtest
   GTest::gtest_main)
 
-velox_add_library(velox_optimizer_tests_hive_queries_test_base
+add_library(velox_optimizer_tests_hive_queries_test_base
                   HiveQueriesTestBase.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_optimizer_tests_hive_queries_test_base
   velox_optimizer_tests_parquet_tpch
   velox_optimizer_tests_plan_matcher

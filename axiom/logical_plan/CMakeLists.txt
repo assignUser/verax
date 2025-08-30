@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-velox_add_library(
+add_library(
   velox_fe_logical_plan
   Expr.cpp
   ExprPrinter.cpp
@@ -20,12 +20,12 @@ velox_add_library(
   PlanPrinter.cpp
   ExprApi.cpp)
 
-velox_link_libraries(velox_fe_logical_plan velox_type)
+target_link_libraries(velox_fe_logical_plan velox_type)
 
-velox_add_library(velox_fe_logical_plan_builder PlanBuilder.cpp
+add_library(velox_fe_logical_plan_builder PlanBuilder.cpp
                   NameAllocator.cpp NameMappings.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_fe_logical_plan_builder
   velox_fe_logical_plan
   velox_connector_metadata

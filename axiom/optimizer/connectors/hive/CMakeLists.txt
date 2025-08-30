@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-velox_add_library(velox_hive_connector_metadata OBJECT
+add_library(velox_hive_connector_metadata OBJECT
                   HiveConnectorMetadata.cpp LocalHiveConnectorMetadata.cpp)
 
-velox_link_libraries(
+target_link_libraries(
   velox_hive_connector_metadata
   velox_connector_metadata
   velox_hive_connector
