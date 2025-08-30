@@ -218,6 +218,7 @@ include_directories(SYSTEM velox/velox/external/xxhash axiom)
 include_directories(SYSTEM ${CMAKE_BINARY_DIR}/_deps/xsimd-src/include/)
 include_directories(${ANTLR4_INCLUDE_DIR})
 
+set(VELOX_MONO_LIBRARY ON)
 add_subdirectory(velox)
 add_subdirectory(axiom/sql/presto)
 add_subdirectory(axiom/logical_plan)
