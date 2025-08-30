@@ -35,13 +35,14 @@ concurrency:
 jobs:
   build-verax:
     name: Build Verax
-    runs-on: 16-core-ubuntu
+    runs-on: ubuntu-latest 
     container:
       image: ghcr.io/facebookincubator/velox-dev:centos9
     env:
       CCACHE_DIR: ${{ github.workspace }}/ccache
       VELOX_DEPENDENCY_SOURCE: SYSTEM
       ICU_SOURCE: SYSTEM
+
     steps:
       - name: Debug Initial Environment
         run: |
