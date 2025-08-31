@@ -44,6 +44,14 @@ jobs:
       ICU_SOURCE: SYSTEM
 
     steps:
+      - name: Free up Disk Space
+        run: |
+          rm -rf /usr/local/lib/android || :
+          # 341MB
+          rm -rf /usr/local/lib/heroku || :
+          # 1.2GB
+          rm -rf /usr/local/lib/node_modules || :
+
       - name: Debug Initial Environment
         run: |
           echo "=== Cache Environment Debug ==="
@@ -107,7 +115,7 @@ jobs:
           echo "Running cmake configure to see CMakeLists.txt debug logs..."
           echo "CPU_TARGET: $CPU_TARGET"
           echo "Ccache auto-detection: $(which ccache >/dev/null && echo 'ccache found' || echo 'ccache not found')"
-          make cmake BUILD_DIR=debug BUILD_TYPE=Debug
+          make cmake BUILD_DIR=debug BUILD_TYPE=Debug EXTRA_CMAKE_FLAGS=-DCMAKE_LINK_LIBRARIES_STRATEGY=REORDER_FREELY
           echo ""
           echo "=== Verifying CMAKE_CXX_COMPILER_LAUNCHER Setting ==="
           if [ -f "_build/debug/CMakeCache.txt" ]; then
