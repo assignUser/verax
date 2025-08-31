@@ -39,7 +39,7 @@ jobs:
     container:
       image: ghcr.io/facebookincubator/velox-dev:centos9
     env:
-      CCACHE_DIR: /__w/verax/verax/ccache
+      CCACHE_DIR: /tmp/ccache
       VELOX_DEPENDENCY_SOURCE: SYSTEM
       ICU_SOURCE: SYSTEM
 
