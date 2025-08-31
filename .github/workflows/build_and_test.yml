@@ -46,11 +46,15 @@ jobs:
     steps:
       - name: Free up Disk Space
         run: |
+          echo "Available disk space:"
+          df -h
           rm -rf /usr/local/lib/android || :
           # 341MB
           rm -rf /usr/local/lib/heroku || :
           # 1.2GB
           rm -rf /usr/local/lib/node_modules || :
+          echo "Available disk space:"
+          df -h
 
       - name: Debug Initial Environment
         run: |
